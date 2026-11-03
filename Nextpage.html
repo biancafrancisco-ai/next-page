@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livros Infantis e Juvenis</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* FONTES E ESTILO BASE */
+  header {
+    background-color: #a119b9;
+    color: #341a28;
+    padding: 30px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 5;
+    font-size: 2em;
+  }
+
+  header p {
+    margin: 5px 0 0;
+    font-weight: 400;
+  }
+
+  nav {
+    background-color: #89179e;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* GRID DE LIVROS */
+  .livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+
+  .livro {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+ .livro a {
+    display: inline-block; /* garante que o <a> envolva a imagem */
+}
+  .livro:hover {
+    transform: translateY(-5px);
+  }
+
+.livro img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+  .livro h3 {
+    margin: 15px 0 10px;
+    font-size: 1.1em;
+  }
+
+  .preco {
+    color: #3c0830;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+button {
+    background-color: #3c0830;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #616ce1;
+}
+
+  /* FOOTER */
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+
+  /* RESPONSIVO */
+  @media (max-width: 768px){
+  .menu-hamburguer {
+    display: flex;
+  }
+
+ nav {
+  background-color: #89179e;
+  display: flex; /* sempre visível no desktop */
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+nav a {
+  font-size: 1.2em; /* links maiores */
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
+  body {
+  overflow-x: hidden;
+}
+  }
+</style>
+</head>
+
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:10px; width:300px; text-align:center; position:relative;">
+    <span onclick="fechar()" style="position:absolute; top:10px; right:15px; cursor:pointer;">&times;</span>
+    <h2 id="nomeProduto"></h2>
+    <p id="precoProduto"></p>
+    <button onclick="Comprar()">Comprar</button>
+    <button onclick="favoritar()">Favoritar</button>
+  </div>
+</div>
+
+<body>
+
+<header>
+  <h1>Livros Infantis e Juvenis</h1>
+  <p>Conectando você às histórias que inspiram e encantam</p>
+</header>
+
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">livros infantis e juvenis</a>
+  <a href="girls love.html">Girls Love</a>
+  <a href="Boys Love">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+
+<div class="livros">
+
+  <div class="livro">
+    <img src="https://www.worten.pt/i/14cf171094c3164655fa84734468ce8db32e27e9">
+    <h3>Harry Potter: e a Pedra Filosofal</h3>
+    <button onclick="abrirProduto('Harry Potter e a Pedra Filosofal', 30.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/07/7e/22/077e221ae4eb2b8975a6619d009eef14.jpg">
+    <h3>O Hobbit</h3>
+    <button onclick="abrirProduto('O Hobbit', 30.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/95/6b/a9/956ba974f40dd3072cab3b547fb54175.jpg">
+    <h3>Divergente</h3>
+    <button onclick="abrirProduto('Divergente', 25.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/1e/a9/a7/1ea9a7653516e9bff1b77f64b559a133.jpg">
+    <h3>A Seleção</h3>
+    <button onclick="abrirProduto('A Seleção', 25.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/43/28/80/432880bc3852fb351ca32608bd10a562.jpg">
+    <h3>Diário de um Banana</h3>
+    <button onclick="abrirProduto('Diário de um Banana', 20.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/6d/a6/4e/6da64e8230ea54d8fca49d44976c663b.jpg">
+    <h3>Citrus</h3>
+    <button onclick="abrirProduto('Citrus', 20.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/f5/9a/4d/f59a4d8ac376826bba92c669f3b50ba3.jpg">
+    <h3>Given</h3>
+    <button onclick="abrirProduto('Given', 25.00)">Comprar</button>
+  </div>
+
+</div>
+
+
+<footer>
+    <p>&copy; 2026-NextPage | Todos os direitos reservados.</p>
+</footer>
+
+
+<script>
+let produtoatual = "";
+
+function abrirProduto(nome, preco) {
+  produtoatual = nome;
+  document.getElementById("nomeProduto").textContent = nome;
+  document.getElementById("precoProduto").textContent = "Preço: R$ " + preco.toFixed(2);
+  document.getElementById("modal").style.display = "flex"; // mostra o modal
+}
+
+function fechar() {
+  document.getElementById("modal").style.display = "none"; // esconde o modal
+}
+
+function Comprar() {
+  alert("Você comprou: " + produtoatual);
+  fechar();
+}
+
+function favoritar() {
+  alert("Você favoritou: " + produtoatual);
+  fechar();
+}
+</script>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+}
+</script>
+ </body>
+</html>

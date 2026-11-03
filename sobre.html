@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre o Next Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* RESET E BODY */
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(90deg, #a119b9, #89179e);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+  }
+  header p {
+    margin: 10px 0 0;
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+
+  /* MENU HAMBURGUER */
+  .menu-hamburguer {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
+  }
+  .menu-hamburguer span {
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* NAV */
+  nav {
+    background-color: #89179e;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  nav a:hover {
+    color: #fccffc;
+    text-decoration: underline;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #fffefe;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    line-height: 1.6;
+  }
+  main h2 {
+    color: #89179e;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  main p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .menu-hamburguer {
+      display: flex;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav.show {
+      display: flex;
+    }
+    main {
+      padding: 30px 20px;
+    }
+    header h1 {
+      font-size: 2em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Sobre o Next Page</h1>
+    <p>Conectando você às histórias que inspiram e encantam</p>
+    <div class="menu-hamburguer" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">Livros Infantis e Juvenis</a>
+  <a href="girls love.html">Girls Love</a>
+  <a href="Boys Love.html">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+<main>
+  <h2>Sobre o Next Page</h2>
+  <p>Bem-vindos à Next Page! Aqui você encontra uma seleção de livros incríveis para todas as idades.</p>
+  <p>Nosso objetivo é incentivar a leitura e proporcionar uma experiência agradável para nossos clientes.</p>
+  <p>Trabalhamos para oferecer livros de qualidade, com preços justos, além de um atendimento amigável e confiável.</p>
+  <p>A Next Page agradece a sua visita!</p>
+</main>
+
+<footer>
+    <p>&copy; 2026-NextPage | Todos os direitos reservados.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

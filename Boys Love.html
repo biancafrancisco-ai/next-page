@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boys Love</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #a119b9;
+  color: #341a28;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 5px;
+  font-size: 2em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-weight: 400;
+}
+
+nav {
+  background-color: #89179e;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* GRID DE LIVROS */
+.livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ESTILO ÚNICO PARA TODOS OS LIVROS */
+.livro {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.livro:hover {
+  transform: translateY(-5px);
+}
+
+.livro img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.livro h3 {
+  margin: 15px 0 10px;
+  font-size: 1.1em;
+}
+
+.livro button {
+  background-color: #3c0830;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.livro button:hover {
+  background-color: #616ce1;
+}
+
+/* MODAL */
+#modal {
+  display: none;
+  position: fixed;
+  top:0; left:0; 
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#modal > div {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+#modal span {
+  position: absolute;
+  top:10px; right:15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* FOOTER */
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  nav a {
+    font-size: 1.2em;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="fechar()">&times;</span>
+    <h2 id="nomeProduto"></h2>
+    <p id="precoProduto"></p>
+    <button onclick="Comprar()">Comprar</button>
+    <button onclick="favoritar()">Favoritar</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <h1>Boys Love</h1>
+  <p>Conectando você às histórias que inspiram e encantam</p>
+</header>
+
+<!-- NAV -->
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">Livros Infantis e Juvenis</a>
+  <a href="Girls Love.html">Girls Love</a>
+  <a href="Boys Love.html">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+<div class="livros">
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/f5/9a/4d/f59a4d8ac376826bba92c669f3b50ba3.jpg" alt="Given">
+    <h3>Given</h3>
+    <button onclick="abrirProduto('Given', 25.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/a3/9c/4f/a39c4ff93600b9bf55f5a9979b46d399.jpg" alt="Killing Stalking">
+    <h3>Killing Stalking</h3>
+    <button onclick="abrirProduto('Killing Stalking', 12.99)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/53/d6/3a/53d63ac046d6c789c26a30aa2f07f65b.jpg" alt="Jinx">
+    <h3>Jinx</h3>
+    <button onclick="abrirProduto('Jinx', 10.99)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/3b/fe/53/3bfe538ad31f54fb5b166e8e6498fd92.jpg" alt="Under the Green Light">
+    <h3>Under the Green Light</h3>
+    <button onclick="abrirProduto('Under the Green Light', 11.72)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/68/c4/cf/68c4cf8216e1b514b5f66d5c952aa4c0.jpg" alt="Legs That Won’t Walk">
+    <h3>Legs That Won’t Walk</h3>
+    <button onclick="abrirProduto('Legs That Won’t Walk', 21.83)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/c0/1b/bc/c01bbc9913971d620b0d17bc9bd9600b.jpg" alt="Pearl Boy">
+    <h3>Pearl Boy</h3>
+    <button onclick="abrirProduto('Pearl Boy', 42.53)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/f8/b4/dd/f8b4ddf2a284053a4b4716507f765dc0.jpg" alt="Walk on Water">
+    <h3>Walk on Water</h3>
+    <button onclick="abrirProduto('Walk on Water', 16.84)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/36/03/af/3603afa01355cd7e4646c46b880c0d1d.jpg" alt="Dear Door">
+    <h3>Dear Door</h3>
+    <button onclick="abrirProduto('Dear Door', 32.83)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/0a/39/51/0a3951d65a94481e02c653255dc20d47.jpg" alt="You Get Me Going">
+    <h3>You Get Me Going</h3>
+    <button onclick="abrirProduto('You Get Me Going', 12.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/2a/01/88/2a0188c1cb92d4aa42339a18768d1f6a.jpg" alt="Payback">
+    <h3>Payback</h3>
+    <button onclick="abrirProduto('Payback', 32.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/67/04/64/67046498d13e318fcf3fd3bc5b21b389.jpg" alt="Limited Run">
+    <h3>Limited Run</h3>
+    <button onclick="abrirProduto('Limited Run', 21.64)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/f4/9a/33/f49a33e5ff3409a5eaa8bb8307c036fa.jpg" alt="Dark Fall">
+    <h3>Dark Fall</h3>
+    <button onclick="abrirProduto('Dark Fall', 26.99)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/cd/90/b8/cd90b887964664db9d03cf638e903430.jpg" alt="Love Shuttle">
+    <h3>Love Shuttle</h3>
+    <button onclick="abrirProduto('Love Shuttle', 9.99)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/32/28/91/322891ee7662bfb6d43bb83165a28305.jpg" alt="Semantic Error">
+    <h3>Semantic Error</h3>
+    <button onclick="abrirProduto('Semantic Error', 18.62)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/c6/ea/74/c6ea74ce9128c22780247420ac8d78fa.jpg" alt="Cherry Blossoms After Winter">
+    <h3>Cherry Blossoms After Winter</h3>
+    <button onclick="abrirProduto('Cherry Blossoms After Winter', 12.39)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR-yhqwQjoTWWEGJhE-P6809GueGFs1e-dudEFfLYRu043HeB0XofiMt-W4y-pCuYYIlwhhUVURl0fNKRzuOCmqGz7fW7RYvA" alt="BJ Alex">
+    <h3>BJ Alex</h3>
+    <button onclick="abrirProduto('BJ Alex', 17.46)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/2e/b6/20/2eb6208c1e59f07e6cfe2e794261663f.jpg" alt="Painter of the Night">
+    <h3>Painter of the Night</h3>
+    <button onclick="abrirProduto('Painter of the Night', 21.62)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/3d/21/47/3d21476f251be7ae2b34564900ca482b.jpg" alt="Sign">
+    <h3>Sign</h3>
+    <button onclick="abrirProduto('Sign', 20.72)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/6a/be/98/6abe98748a6ed1dedcc7ad69e769c472.jpg" alt="The New Recruit">
+    <h3>The New Recruit</h3>
+    <button onclick="abrirProduto('The New Recruit', 18.28)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/c9/a6/d6/c9a6d666292118f00fe7391da94392ee.jpg" alt="Love is an Illusion">
+    <h3>Love is an Illusion</h3>
+    <button onclick="abrirProduto('Love is an Illusion', 19.19)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/bb/08/4a/bb084a06ff6bdfde59dab78225670674.jpg" alt="Obey Me">
+    <h3>Obey Me</h3>
+    <button onclick="abrirProduto('Obey Me', 12.37)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/44/53/03/4453036e85c696b216bbeff079052a12.jpg" alt="Unintentional Love Story">
+    <h3>Unintentional Love Story</h3>
+    <button onclick="abrirProduto('Unintentional Love Story', 32.84)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/bb/04/d0/bb04d00d37013d086347aa81f6e91020.jpg" alt="Blood Bank">
+    <h3>Blood Bank</h3>
+    <button onclick="abrirProduto('Blood Bank', 19.31)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/9d/9e/e6/9d9ee63c9e8b18a1db4170aaa563acbe.jpg" alt="Sasaki To Miyano">
+    <h3>Sasaki To Miyano</h3>
+    <button onclick="abrirProduto('Sasaki To Miyano', 57.12)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/28/e4/d6/28e4d60a23a50eafede3a1f70587ee99.jpg" alt="Junjou Romântica">
+    <h3>Junjou Romântica</h3>
+    <button onclick="abrirProduto('Junjou Romântica', 25.10)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/90/22/5a/90225a17135cc2c71d7b75f34e4c0a87.jpg" alt="Sekaiichi Hatsukoi">
+    <h3>Sekaiichi Hatsukoi</h3>
+    <button onclick="abrirProduto('Sekaiichi Hatsukoi', 13.06)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/48/44/ec/4844ece5735b3de478f54f6a6e8503d0.jpg" alt="Love Stage">
+    <h3>Love Stage</h3>
+    <button onclick="abrirProduto('Love Stage', 27.61)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/db/47/00/db470009f8ed70daed0ac2494fcbafec.jpg" alt="Gravitation">
+    <h3>Gravitation</h3>
+    <button onclick="abrirProduto('Gravitation', 20.13)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/a1/76/08/a17608036ce152650640d1f1d1b00770.jpg" alt="Kaze to Ki no Uta">
+    <h3>Kaze to Ki no Uta</h3>
+    <button onclick="abrirProduto('Kaze to Ki no Uta', 42.63)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqW64Oy2-CVG0jT_50h1bDMf6zwEQtyj9eVQ&s" alt="I Hear the Sunspot">
+    <h3>I Hear the Sunspot</h3>
+    <button onclick="abrirProduto('I Hear the Sunspot', 9.30)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/93/6f/72/936f72da8ba7d05695dbbc33b0e0fed5.jpg" alt="Ten Count">
+    <h3>Ten Count</h3>
+    <button onclick="abrirProduto('Ten Count', 0)">Comprar</button>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026-NextPage | Todos os direitos reservados.</p>
+</footer>
+
+<script>
+let produtoatual = "";
+
+function abrirProduto(nome, preco) {
+  produtoatual = nome;
+  document.getElementById("nomeProduto").textContent = nome;
+  document.getElementById("precoProduto").textContent = "Preço: R$ " + preco.toFixed(2);
+  document.getElementById("modal").style.display = "flex";
+}
+
+function fechar() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function Comprar() {
+  alert("Você comprou: " + produtoatual);
+  fechar();
+}
+
+function favoritar() {
+  alert("Você favoritou: " + produtoatual);
+  fechar();
+}
+
+// Fecha modal ao clicar fora
+window.onclick = function(event) {
+  const modal = document.getElementById("modal");
+  if (event.target == modal) {
+    fechar();
+  }
+}
+</script>
+
+</body>
+</html>

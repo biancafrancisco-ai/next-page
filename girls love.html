@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girls Love</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* RESET E BODY */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background-color: #a119b9;
+    color: #341a28;
+    padding: 30px;
+    text-align: center;
+  }
+  header h1 { margin: 5px; font-size: 2em; }
+  header p { margin: 5px 0 0; font-weight: 400; }
+
+  /* NAV */
+  nav {
+    background-color: #89179e;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+  nav a { color: #fff; text-decoration: none; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+
+  /* GRID DE LIVROS */
+  .livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+
+  /* ESTILO DOS LIVROS */
+  .livro {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .livro:hover { transform: translateY(-5px); }
+  .livro img { width: 100%; height: 230px; object-fit: cover; border-radius: 5px; }
+  .livro h3 { margin: 15px 0 10px; font-size: 1.1em; }
+  .livro button {
+    background-color: #3c0830;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .livro button:hover { background-color: #616ce1; }
+
+  /* MODAL */
+  #modal {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  #modal > .modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+  }
+  #modal span.close {
+    position: absolute;
+    top:10px;
+    right:15px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  /* BOTÕES DO MODAL */
+  #modal .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  #modal button {
+    background-color: #3c0830;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  #modal button:hover { background-color: #616ce1; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    nav a { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Girls Love</h1>
+  <p>Conectando você às histórias que inspiram e encantam</p>
+</header>
+
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">Livros Infantis e Juvenis</a>
+  <a href="girls love.html">Girls Love</a>
+  <a href="Boys Love.html">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+<div class="livros">
+  <!-- Livro 1 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/0e/3e/a2/0e3ea236113d820bcf15dbc08267c1d1.jpg" alt="Tamen de Gushi">
+    <h3>Tamen de Gushi</h3>
+    <button onclick="abrirProduto('Tamen de Gushi', 20.00)">Comprar</button>
+  </div>
+
+  <!-- Livro 2 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/79/14/da/7914da65ce4acc52e34abcbea0d3dfa6.jpg" alt="What Does the Fox Say?">
+    <h3>What Does the Fox Say?</h3>
+    <button onclick="abrirProduto('What Does the Fox Say?', 17.38)">Comprar</button>
+  </div>
+
+  <!-- Livro 3 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/40/78/ff/4078ffa9000e012b2fc0032c74913ce7.jpg" alt="Pulse">
+    <h3>Pulse</h3>
+    <button onclick="abrirProduto('Pulse', 16.40)">Comprar</button>
+  </div>
+
+  <!-- Livro 4 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/ec/95/65/ec956576dbef0b9dd19b6109fb889869.jpg" alt="Her Shim-Cheong">
+    <h3>Her Shim-Cheong</h3>
+    <button onclick="abrirProduto('Her Shim-Cheong', 34.56)">Comprar</button>
+  </div>
+
+  <!-- Livro 5 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/20/90/4c/20904cfb349826e9a42eb4442f2ea6b6.jpg" alt="Lily Love">
+    <h3>Lily Love</h3>
+    <button onclick="abrirProduto('Lily Love', 23.78)">Comprar</button>
+  </div>
+
+  <!-- Livro 6 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/3d/78/65/3d786509af4860e3b73a800a007a862c.jpg" alt="Bloom Into You">
+    <h3>Bloom Into You</h3>
+    <button onclick="abrirProduto('Bloom Into You', 9.50)">Comprar</button>
+  </div>
+
+  <!-- Livro 8 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/da/d5/e6/dad5e6afcaf93e7c2aafb4095c079eec.jpg" alt="Citrus">
+    <h3>Citrus</h3>
+    <button onclick="abrirProduto('Citrus', 12.91)">Comprar</button>
+  </div>
+
+  <!-- Livro 9 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/14/be/a4/14bea4997dec7d44dc57e362e106ef46.jpg" alt="Adachi to Shimamura">
+    <h3>Adachi to Shimamura</h3>
+    <button onclick="abrirProduto('Adachi to Shimamura', 13.00)">Comprar</button>
+  </div>
+
+  <!-- Livro 10 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/d3/ee/e6/d3eee6395c9706b8f1504e8d904990f7.jpg" alt="Kase-san no Yakkun">
+    <h3>Kase-san no Yakkun</h3>
+    <button onclick="abrirProduto('Kase-san no Yakkun', 25.90)">Comprar</button>
+  </div>
+
+  <!-- Livro 11 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/99/47/1f/99471fff6a1f8347572b6a50905f80a8.jpg" alt="Hana ni Arashi">
+    <h3>Hana ni Arashi</h3>
+    <button onclick="abrirProduto('Hana ni Arashi', 0)">Comprar</button>
+  </div>
+
+  <!-- Livro 12 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/ab/f7/12/abf712c066bd98fc8e848d0d59ba86ab.jpg" alt="Sasayaku You ni Koi o Utau">
+    <h3>Sasayaku You ni Koi o Utau</h3>
+    <button onclick="abrirProduto('Sasayaku You ni Koi o Utau', 19.85)">Comprar</button>
+  </div>
+
+  <!-- Livro 13 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/a5/fc/ca/a5fccabc1d784dc3301245b5f0aab29e.jpg" alt="Please Take Care of Me in This Life as Well">
+    <h3>Please Take Care of Me in This Life as Well</h3>
+    <button onclick="abrirProduto('Please Take Care of Me in This Life as Well', 20.72)">Comprar</button>
+  </div>
+
+  <!-- Livro 14 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/79/df/6e/79df6ea66b2bfb27f3348c0534580a27.jpg" alt="The Third Party">
+    <h3>The Third Party</h3>
+    <button onclick="abrirProduto('The Third Party', 43.76)">Comprar</button>
+  </div>
+
+  <!-- Livro 16 -->
+  <div class="livro">
+    <img src="https://skoob.s3.amazonaws.com/livros/11820147/MOONLIGHT_GARDEN_175839519711820147SK-V11758395197B.jpg" alt="Moonlight Garden">
+    <h3>Moonlight Garden</h3>
+    <button onclick="abrirProduto('Moonlight Garden', 23.46)">Comprar</button>
+  </div>
+
+  <!-- Livro 17 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/d1/ec/25/d1ec257ec7104caed3ab9003e3b3a4f2.jpg" alt="Pulse (uncensurada)">
+    <h3>Pulse (uncensurada)</h3>
+    <button onclick="abrirProduto('Pulse (uncensurada)', 13.76)">Comprar</button>
+  </div>
+
+  <!-- Livro 18 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/48/05/4b/48054b2b9273945ee221be8f24e54898.jpg" alt="Her Tale of Shim Chong">
+    <h3>Her Tale of Shim Chong</h3>
+    <button onclick="abrirProduto('Her Tale of Shim Chong', 23.47)">Comprar</button>
+  </div>
+
+  <!-- Livro 21 -->
+  <div class="livro">
+    <img src="https://m.media-amazon.com/images/I/81eDJjklyhL._UF1000,1000_QL80_.jpg" alt="Citrus+">
+    <h3>Citrus+</h3>
+    <button onclick="abrirProduto('Citrus+', 11.63)">Comprar</button>
+  </div>
+
+  <!-- Livro 22 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/7c/df/d7/7cdfd742749e013428bd83a010b306e7.jpg" alt="Yuri Hime Wildrose">
+    <h3>Yuri Hime Wildrose</h3>
+    <button onclick="abrirProduto('Yuri Hime Wildrose', 23.80)">Comprar</button>
+  </div>
+
+  <!-- Livro 23 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/13/9d/4c/139d4c33363fb736554bd2e10c7a7af5.jpg" alt="Sono Hanabira">
+    <h3>Sono Hanabira</h3>
+    <button onclick="abrirProduto('Sono Hanabira', 23.90)">Comprar</button>
+  </div>
+
+  <!-- Livro 25 -->
+  <div class="livro">
+    <img src="https://m.media-amazon.com/images/I/81JjajlrfoL._AC_UF1000,1000_QL80_.jpg" alt="Kemono Jihen (side +18)">
+    <h3>Kemono Jihen (side +18)</h3>
+    <button onclick="abrirProduto('Kemono Jihen (side +18)', 13.99)">Comprar</button>
+  </div>
+
+  <!-- Livro 26 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/c2/e0/91/c2e091ca5fbf6115984e09ff6e9d9590.jpg" alt="Lily (doujinshi)">
+    <h3>Can't Defy the Lonely Girl</h3>
+    <button onclick="abrirProduto('Cant Defy the Lonely Girl', 14.90)">Comprar</button>
+  </div>
+
+  <!-- Livro 27 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/b4/e9/74/b4e9740c63cab2edada4e33477be180f.jpg" alt="Ane to Boin">
+    <h3>Omega Heroine Wants Her Alpha Villainess</h3>
+    <button onclick="abrirProduto('Omega Heroine Wants Her Alpha Villainess', 23.44)">Comprar</button>
+  </div>
+
+  <!-- Livro 28 -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/d9/90/99/d9909952f341deccf5ac2c99750ad7a0.jpg" alt="Aoi-chan Attack!">
+    <h3>Lily on the valley</h3>
+    <button onclick="abrirProduto('Lily on the valley', 12.74)">Comprar</button>
+  </div>
+
+  <!-- Livro 29 -->
+  <div class="livro">
+    <img src="https://80pd.wowpic2.store/ii/bEqPbYfoNT0Gm0nlDlqfuBJA1rEtb/01.webp" alt="Ane Doki">
+    <h3>drunken my boss</h3>
+    <button onclick="abrirProduto('drunken my boss', 34.96)">Comprar</button>
+  </div>
+    <div class="livro">
+    <img src="https://i.pinimg.com/736x/f4/37/0c/f4370cb48df935783f7ed5802f234ba7.jpg" alt="Kannazuki no Miko">
+    <h3>Kannazuki no Miko</h3>
+    <button onclick="abrirProduto('Kannazuki no Miko', 25.00)">Comprar</button>
+  </div>
+    <!-- Yuri Kuma Arashi -->
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/6a/c7/1a/6ac71ae30b3a2c87deabef81f2c5c690.jpg" alt="Yuri Kuma Arashi">
+    <h3>Yuri Kuma Arashi</h3>
+    <button onclick="abrirProduto('Yuri Kuma Arashi', 39.90)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.ebayimg.com/images/g/3LEAAOSweUFngAnK/s-l1200.jpg" alt="The Anemone Feels the Heat">
+    <h3>The Anemone Feels the Heat</h3>
+    <button onclick="abrirProduto('The Anemone Feels the Heat', 45.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://thumbs.visormanga.com/cover/67325e1275717.jpg" alt="Una brisa de la tarde sopla">
+    <h3>Una brisa de la tarde sopla</h3>
+    <button onclick="abrirProduto('Una brisa de la tarde sopla', 29.90)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/16/3e/e7/163ee792ad2ae4fd855cb167e0e259ef.jpg" alt="A Yuri Love Story That Begins with Getting Dumped in a Dream">
+    <h3>A Yuri Love Story That Begins with Getting Dumped in a Dream</h3>
+    <button onclick="abrirProduto('A Yuri Love Story That Begins with Getting Dumped in a Dream', 25.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/c2/24/30/c224307b98e6c948c400f5276a7f0ef6.jpg" alt="Watashi Ga Koibito Ni Nareru Wake Naijan, Muri Muri!">
+    <h3>Watashi Ga Koibito Ni Nareru Wake Naijan, Muri Muri!</h3>
+    <button onclick="abrirProduto('Watashi Ga Koibito Ni Nareru Wake Naijan, Muri Muri!', 45.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD8MqibkXEnvrKXGu1EyyTVeVwj1pC65juBw&s" alt="Takane-san and Arashi-chan">
+    <h3>Takane-san and Arashi-chan</h3>
+    <button onclick="abrirProduto('Takane-san and Arashi-chan', 20.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/d1/Koe_ga_Dasenai_Sh%C5%8Djo_wa_%22Kanojo_ga_Yasashisugiru%22_to_Omotte_Iru_volume_1_cover.jpg" alt="Koe ga Dasenai Shoujo wa Kanojo ga Yasashisugiru">
+    <h3>Koe ga Dasenai Shoujo wa Kanojo ga Yasashisugiru</h3>
+    <button onclick="abrirProduto('Koe ga Dasenai Shoujo wa Kanojo ga Yasashisugiru', 45.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/14/93/cd/1493cd37a09416ee58527490c76c9c48.jpg" alt="Hello, Melancholic!">
+    <h3>Hello, Melancholic!</h3>
+    <button onclick="abrirProduto('Hello, Melancholic!', 36.74)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlIFpIJU6MUXugItYTVQ4vLJbymEyVVzC1zg&s" alt="Pinky Promise">
+    <h3>Pinky Promise</h3>
+    <button onclick="abrirProduto('Pinky Promise', 20.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-kJA1QffFY5MSKO9mL3c5UYCnUI8rVjlpqA&s" alt="The Wolf Steals the Sun">
+    <h3>The Wolf Steals the Sun</h3>
+    <button onclick="abrirProduto('The Wolf Steals the Sun', 49.90)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/83/20/da/8320da29371c3b94aae444105adc019f.jpg" alt="Nevermore">
+    <h3>Nevermore</h3>
+    <button onclick="abrirProduto('Nevermore', 30.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://cdn.mangaupdates.com/image/i409857.jpg" alt="Talk Dirty to Me">
+    <h3>Talk Dirty to Me</h3>
+    <button onclick="abrirProduto('Talk Dirty to Me', 45.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/96/b0/d3/96b0d398c155c368b8a96255e9ef1295.jpg" alt="Bead Master">
+    <h3>Bead Master</h3>
+    <button onclick="abrirProduto('Bead Master', 20.93)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/e7/cb/d2/e7cbd26d2f0f828df084f0d8c93ebbdb.jpg" alt="Handsome Girl and Sheltered Girl">
+    <h3>Handsome Girl and Sheltered Girl</h3>
+    <button onclick="abrirProduto('Handsome Girl and Sheltered Girl', 45.00)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://yuri.live/wp-content/uploads/2025/01/Alls-Nice-GL-Manhwa1-193x278.webp" alt="All's Nice">
+    <h3>All's Nice</h3>
+    <button onclick="abrirProduto('All\'s Nice', 38.92)">Comprar</button>
+  </div>
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/b1/ec/bf/b1ecbfd9a02794e06c980114ffe0c656.jpg" alt="The Guy She Was Interested in Wasn’t a Guy at All">
+    <h3>The Guy She Was Interested in Wasn’t a Guy at All</h3>
+    <button onclick="abrirProduto('The Guy She Was Interested in Wasn’t a Guy at All', 40.00)">Comprar</button>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="fechar()">&times;</span>
+    <h2 id="nomeProduto"></h2>
+    <p id="precoProduto"></p>
+    <div class="modal-buttons">
+      <button onclick="comprar()">Comprar</button>
+      <button onclick="favoritar()">Favoritar</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026-NextPage | Todos os direitos reservados.</p>
+</footer>
+
+<script>
+let produtoAtual = "";
+
+function abrirProduto(nome, preco){
+  produtoAtual = nome;
+  document.getElementById("nomeProduto").textContent = nome;
+  document.getElementById("precoProduto").textContent = "Preço: R$ " + preco.toFixed(2);
+  document.getElementById("modal").style.display = "flex";
+}
+
+function fechar(){ document.getElementById("modal").style.display = "none"; }
+function comprar(){ alert("Você comprou: " + produtoAtual); fechar(); }
+function favoritar(){ alert("Você favoritou: " + produtoAtual); fechar(); }
+
+window.onclick = function(event){
+  const modal = document.getElementById("modal");
+  if(event.target == modal){ fechar(); }
+}
+</script>
+
+</body>
+</html>

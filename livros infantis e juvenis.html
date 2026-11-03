@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livros Infantis e Juvenis</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #a119b9;
+  color: #341a28;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-weight: 400;
+}
+
+nav {
+  background-color: #89179e;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.livro {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.livro:hover {
+  transform: translateY(-5px);
+}
+
+.livro img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.livro h3 {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+button {
+  background-color: #3c0830;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #616ce1;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+@media (max-width: 768px) {
+  nav a {
+    font-size: 1.1em;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="modal">
+  <div class="modal-box">
+    <span class="fechar" onclick="fechar()">&times;</span>
+    <h2 id="nomeProduto"></h2>
+    <p id="precoProduto"></p>
+    <button onclick="Comprar()">Comprar</button>
+    <button onclick="favoritar()">Favoritar</button>
+  </div>
+</div>
+
+<header>
+  <h1>Livros Infantis e Juvenis</h1>
+  <p>Conectando você às histórias que inspiram e encantam</p>
+</header>
+
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">livros infantis e juvenis</a>
+  <a href="girls love.html">Girls Love</a>
+  <a href="Boys Love">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+<div class="livros">
+
+<!-- Turma da Mônica Jovem -->
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/89/4a/76/894a76c334e69839efe48968cbe9890a.jpg" alt="Turma da Mônica: A Menina do Intercâmbio">
+  <h3>Turma da Mônica: A Menina do Intercâmbio</h3>
+  <button onclick="abrirProduto('Turma da Mônica: A Menina do Intercâmbio', 10)">Comprar</button>
+</div>
+
+<!-- Percy Jackson -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/c7/2d/74/c72d7463a45625bbde4d7c076d7e69e9.jpg" alt="Percy Jackson e os Olimpianos: A Batalha do Labirinto">
+  <h3>Percy Jackson e os Olimpianos: A Batalha do Labirinto</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: A Batalha do Labirinto', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/da/d3/b3/dad3b3feaf9b11584ea610fb44afaf1c.jpg" alt="Percy Jackson e os Olimpianos: A Maldição do Titã">
+  <h3>Percy Jackson e os Olimpianos: A Maldição do Titã</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: A Maldição do Titã', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/26/3c/2f/263c2fa64efa9b5b00710f2fbedf48d6.jpg" alt="Percy Jackson e os Olimpianos: O Cálice dos Deuses">
+  <h3>Percy Jackson e os Olimpianos: O Cálice dos Deuses</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: O Cálice dos Deuses', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/1f/d6/46/1fd64626847ac93d5c172fda65c89984.jpg" alt="Percy Jackson e os Olimpianos: O Ladrão de Raios">
+  <h3>Percy Jackson e os Olimpianos: O Ladrão de Raios</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: O Ladrão de Raios', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/22/15/a6/2215a6f26b11e7c335b0cc6c180152d6.jpg" alt="Percy Jackson e os Olimpianos: O Mar de Monstros">
+  <h3>Percy Jackson e os Olimpianos: O Mar de Monstros</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: O Mar de Monstros', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/5c/5a/04/5c5a04b1b4707e03c983d764c846526e.jpg" alt="Percy Jackson e os Olimpianos: O Último Olimpiano">
+  <h3>Percy Jackson e os Olimpianos: O Último Olimpiano</h3>
+  <button onclick="abrirProduto('Percy Jackson e os Olimpianos: O Último Olimpiano', 45)">Comprar</button>
+</div>
+
+<!-- Clássicos -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/2c/68/41/2c6841147b6bf02cb4f07d3a962554c0.jpg" alt="O Diário de Anne Frank">
+  <h3>O Diário de Anne Frank</h3>
+  <button onclick="abrirProduto('O Diário de Anne Frank', 45)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/e3/ce/ee/e3ceeea46e77c4da158328cda677ffb3.jpg" alt="O Corcunda de Notre Dame">
+  <h3>O Corcunda de Notre Dame</h3>
+  <button onclick="abrirProduto('O Corcunda de Notre Dame', 25)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/07/7e/22/077e221ae4eb2b8975a6619d009eef14.jpg" alt="O Hobbit">
+  <h3>O Hobbit</h3>
+  <button onclick="abrirProduto('O Hobbit', 30)">Comprar</button>
+</div>
+
+<!-- Séries Populares -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/1e/a9/a7/1ea9a7653516e9bff1b77f64b559a133.jpg" alt="A Seleção">
+  <h3>A Seleção</h3>
+  <button onclick="abrirProduto('A Seleção', 25)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/08/9d/28/089d2838cc6b59748b37801d5aec907a.jpg" alt="Jogos Vorazes">
+  <h3>Jogos Vorazes</h3>
+  <button onclick="abrirProduto('Jogos Vorazes', 35)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/99/0e/46/990e4605682f519281e3d55d0a2fb1b9.jpg" alt="Jogos Vorazes: Em Chamas">
+  <h3>Jogos Vorazes: Em Chamas</h3>
+  <button onclick="abrirProduto('Jogos Vorazes: Em Chamas', 35)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/ab/ee/cc/abeeccec6fbb70c165250f4924640010.jpg" alt="Jogos Vorazes: Amanhecer na Colheita">
+  <h3>Jogos Vorazes: Amanhecer na Colheita</h3>
+  <button onclick="abrirProduto('Jogos Vorazes: Amanhecer na Colheita', 35)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/d7/00/fa/d700fa943233f19c7a52f94956d57c7b.jpg" alt="Jogos Vorazes: A Esperança">
+  <h3>Jogos Vorazes: A Esperança</h3>
+  <button onclick="abrirProduto('Jogos Vorazes: A Esperança', 35)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/24/17/6e/24176e60700e7008d0bce021b1ad45b1.jpg" alt="Jogos Vorazes: A Cantiga dos Pássaros e das Serpentes">
+  <h3>Jogos Vorazes: A Cantiga dos Pássaros e das Serpentes</h3>
+  <button onclick="abrirProduto('Jogos Vorazes: A Cantiga dos Pássaros e das Serpentes', 35)">Comprar</button>
+</div>
+
+<!-- Divergente -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/95/6b/a9/956ba974f40dd3072cab3b547fb54175.jpg" alt="Divergente">
+  <h3>Divergente</h3>
+  <button onclick="abrirProduto('Divergente', 25)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/90/12/80/9012808fa58b64d772a90d7883645753.jpg" alt="Insurgente">
+  <h3>Insurgente</h3>
+  <button onclick="abrirProduto('Insurgente', 25)">Comprar</button>
+</div>
+
+<div class="livro">
+  <img src="https://i.pinimg.com/1200x/9c/30/37/9c30373cb58fa2e6a518fff5180507d9.jpg" alt="Convergente">
+  <h3>Convergente</h3>
+  <button onclick="abrirProduto('Convergente', 25)">Comprar</button>
+</div>
+
+<!-- Diário de um Banana -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/43/28/80/432880bc3852fb351ca32608bd10a562.jpg" alt="Diário de um Banana">
+  <h3>Diário de um Banana</h3>
+  <button onclick="abrirProduto('Diário de um Banana', 20)">Comprar</button>
+</div>
+
+<!-- A Culpa é das Estrelas -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/36/d9/4d/36d94d4251e0236c9449a64d1f8815f3.jpg" alt="A Culpa é das Estrelas">
+  <h3>A Culpa é das Estrelas</h3>
+  <button onclick="abrirProduto('A Culpa é das Estrelas', 25)">Comprar</button>
+</div>
+
+<!-- Cidade dos Ossos -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/9f/fa/a1/9ffaa1e76e70bd3fe18f5950358437fc.jpg" alt="Cidade dos Ossos">
+  <h3>Cidade dos Ossos</h3>
+  <button onclick="abrirProduto('Cidade dos Ossos', 30)">Comprar</button>
+</div>
+
+<!-- Anne of Green Gables -->
+<div class="livro">
+  <img src="https://i.pinimg.com/736x/72/02/3f/72023f6d044ef0d79fd18c81f614345b.jpg" alt="Anne of Green Gables">
+  <h3>Anne of Green Gables</h3>
+  <button onclick="abrirProduto('Anne of Green Gables', 20)">Comprar</button>
+</div>
+
+</div> <!-- fecha .livros -->
+
+
+<footer>
+  <p>© 2026 NextPage - Todos os direitos reservados</p>
+</footer>
+
+<script>
+let produtoatual = "";
+
+function abrirProduto(nome, preco) {
+  produtoatual = nome;
+  document.getElementById("nomeProduto").textContent = nome;
+  document.getElementById("precoProduto").textContent = "Preço: R$ " + preco.toFixed(2);
+  document.getElementById("modal").style.display = "flex";
+}
+
+function fechar() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function Comprar() {
+  alert("Você comprou: " + produtoatual);
+  fechar();
+}
+
+function favoritar() {
+  alert("Você favoritou: " + produtoatual);
+  fechar();
+}
+</script>
+
+</body>
+</html>

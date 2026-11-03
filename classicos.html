@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clássicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #a119b9;
+  color: #341a28;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 5px;
+  font-size: 2em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-weight: 400;
+}
+
+nav {
+  background-color: #89179e;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* GRID DE LIVROS */
+.livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ESTILO ÚNICO PARA TODOS OS LIVROS */
+.livro {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.livro:hover {
+  transform: translateY(-5px);
+}
+
+.livro img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.livro h3 {
+  margin: 15px 0 10px;
+  font-size: 1.1em;
+}
+
+.livro button {
+  background-color: #3c0830;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.livro button:hover {
+  background-color: #616ce1;
+}
+
+/* MODAL */
+#modal {
+  display: none;
+  position: fixed;
+  top:0; left:0; 
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#modal > div {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+#modal span {
+  position: absolute;
+  top:10px; right:15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* FOOTER */
+  footer {
+    margin-top: 40px;
+    background-color: #89179e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.99em;
+  }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  nav a {
+    font-size: 1.2em;
+  }
+}
+</style>
+</head>
+
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+background:rgba(0, 0, 0, 0.5); justify-content:center; align-items:center;">
+  <div style="background:#ffffff; padding:20px; border-radius:10px; width:300px; text-align:center; position:relative;">
+    <span onclick="fechar()" style="position:absolute; top:10px; right:15px; cursor:pointer;">&times;</span>
+    <h2 id="nomeProduto"></h2>
+    <p id="precoProduto"></p>
+    <button onclick="Comprar()">Comprar</button>
+    <button onclick="favoritar()">Favoritar</button>
+  </div>
+</div>
+
+<body>
+
+<header>
+  <h1>Clássicos</h1>
+  <p>Conectando você às histórias que inspiram e encantam</p>
+</header>
+<nav id="menu">
+  <a href="nextpage.html">Início</a>
+  <a href="livros.html">Livros</a>
+  <a href="livros infantis e juvenis.html">livros infantis e juvenis</a>
+  <a href="girls love.html">Girls Love</a>
+  <a href="Boys Love">Boys Love</a>
+  <a href="contato.html">Contato</a>
+  <a href="Classicos.html">Clássicos</a>
+  <a href="sobre.html">Sobre</a>
+</nav>
+
+<div class="livros">
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/b5/39/21/b53921922273a738cf796119e78b796e.jpg" alt="Dom Casmurro">
+    <h3>Dom Casmurro</h3>
+    <button onclick="abrirProduto('Dom Casmurro', 20.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/f9/7a/d1/f97ad17ac63ef3fd258b05edb5cb0516.jpg" alt="Cem Anos de Solidão">
+    <h3>Cem Anos de Solidão</h3>
+    <button onclick="abrirProduto('Cem Anos de Solidão', 30.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/90/b1/3e/90b13e2903cd55454140d12c12ff683b.jpg" alt="Orgulho e Preconceito">
+    <h3>Orgulho e Preconceito</h3>
+    <button onclick="abrirProduto('Orgulho e Preconceito', 25.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/6f/cf/76/6fcf76874ffe4ba02a7c23fac931d17c.jpg" alt="1984">
+    <h3>1984</h3>
+    <button onclick="abrirProduto('1984', 25.90)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/2b/6c/af/2b6caf826b2abe15235780cb02674a16.jpg" alt="A Metamorfose">
+    <h3>A Metamorfose</h3>
+    <button onclick="abrirProduto('A Metamorfose', 20.96)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/df/9b/ea/df9beabce1fb5e8aa068f418d36f6f35.jpg" alt="Crime e Castigo">
+    <h3>Crime e Castigo</h3>
+    <button onclick="abrirProduto('Crime e Castigo', 20.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/32/b8/61/32b8615dc64a58a435418153a3f89f0e.jpg" alt="Grande Gatsby">
+    <h3>Grande Gatsby</h3>
+    <button onclick="abrirProduto('Grande Gatsby', 20.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/2d/cb/87/2dcb875e2295700b2bd0d3f77af03a13.jpg" alt="Moby Dick">
+    <h3>Moby Dick</h3>
+    <button onclick="abrirProduto('Moby Dick', 25.80)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/81/13/7c/81137cecdfd01055c9d3e22792d33d53.jpg" alt="A Ilíada">
+    <h3>A Ilíada</h3>
+    <button onclick="abrirProduto('A Ilíada', 40.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/d3/fd/c7/d3fdc77cbbf9b8541b49105772c8227b.jpg" alt="O Conde de Monte Cristo">
+    <h3>O Conde de Monte Cristo</h3>
+    <button onclick="abrirProduto('O Conde de Monte Cristo', 30.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/1200x/22/e6/18/22e6180f1ec041f5213d02d0249fa53b.jpg" alt="Drácula">
+    <h3>Drácula</h3>
+    <button onclick="abrirProduto('Drácula', 30.00)">Comprar</button>
+  </div>
+
+  <div class="livro">
+    <img src="https://i.pinimg.com/736x/e6/40/c6/e640c6204075b8538e26e8e4f1d90763.jpg" alt="O Retrato de Dorian Gray">
+    <h3>O Retrato de Dorian Gray</h3>
+    <button onclick="abrirProduto('O Retrato de Dorian Gray', 29.99)">Comprar</button>
+  </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026-NextPage | Todos os direitos reservados.</p>
+</footer>
+
+<script>
+let produtoatual = "";
+
+function abrirProduto(nome, preco) {
+  produtoatual = nome;
+  document.getElementById("nomeProduto").textContent = nome;
+  document.getElementById("precoProduto").textContent = "Preço: R$ " + preco.toFixed(2);
+  document.getElementById("modal").style.display = "flex"; // mostra o modal
+}
+
+function fechar() {
+  document.getElementById("modal").style.display = "none"; // esconde o modal
+}
+
+function Comprar() {
+  alert("Você comprou: " + produtoatual);
+  fechar();
+}
+
+function favoritar() {
+  alert("Você favoritou: " + produtoatual);
+  fechar();
+}
+</script>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+}
+</script>
+</body>
+</html>
